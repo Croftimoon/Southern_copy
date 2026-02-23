@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="consignment_development_view_picking_form" model="ir.ui.view">
+            <field name="name">consignment.development.view.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="origin" position="after">
+                    <field name="is_consignment_picking" readonly="1"/>
+                </field>
+
+                <xpath expr="//field[@name='picking_type_id']" position="attributes">
+                    <attribute name="invisible">hide_picking_type or is_consignment_picking</attribute>
+                </xpath>
+                <xpath expr="//field[@name='location_id'][2]" position="attributes">
+                    <attribute name="invisible">picking_type_code == 'incoming' or is_consignment_picking</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='picking_type_id']" position="after">
+                    <field name="picking_type_id" invisible="not is_consignment_picking" required="is_consignment_picking"
+                    readonly="state != 'draft' and id" domain="[('id', 'in', picking_type_ids)]" options="{'no_open': True}"/>
+                    <field name="picking_type_ids" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='location_id']" position="after">
+                    <field name="location_id" invisible="not is_consignment_picking" required="is_consignment_picking"
+                    readonly="state == 'done'" domain="[('id', 'in', location_ids)]" options="{'no_create': True}"/>
+                    <field name="location_ids" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">is_consignment_picking</attribute>
+                </xpath>
+                <xpath expr="//div[hasclass('o_td_label')]" position="attributes">
+                    <attribute name="invisible">is_consignment_picking</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="partner_id" options="{'no_create': True, 'no_open': True}"
+                           invisible="not is_consignment_picking" required="is_consignment_picking" readonly="state in ['done', 'cancel']" domain="[('property_is_consignment_customer', '=', context.get('is_consignment_picking'))]"/>
+                </xpath>
+
+                <xpath expr="//field[@name='location_dest_id'][2]" position="attributes">
+                    <attribute name="readonly">is_consignment_picking</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_cancel']" position="after">
+                    <button name="action_book_sale" string="Book Sale"
+                            invisible="done_order or state != 'done' or not is_consignment_picking"
+                            type="object" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button" string="Sale Order" type="object" name="action_view_sale_order"
+                            icon="fa-pencil-square-o"
+                            invisible="order_count == 0">
+                        <field name="order_count" widget="statinfo" string="Sale Order"/>
+                    </button>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="after">
+                    <div invisible="not is_clear">
+                        <label for="is_clear" string="This transfer is fully clear."/>
+                        <field name="is_clear" help="This transfer is fully clear."/>
+                    </div>
+                    <field name="done_order" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="consignment_development_stock_picking" model="ir.actions.act_window">
+            <field name="name">Consignment Transfers</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_consignment_picking','=', True)]</field>
+            <field name="context">{'is_consignment_picking':True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No transfer found. Let's create one!
+                </p>
+                <p>
+                    Transfers allow you to move products from one location to another.
+                </p>
+            </field>
+        </record>
+
+        <record id="consignment_development_stock_picking_returned_action" model="ir.actions.act_window">
+            <field name="name">Consignment Return Transfers</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_consignment_picking','=', True), ('location_id.is_consignment_location','=',
+                True), ('location_dest_id.usage','!=', 'customer')]
+            </field>
+            <field name="context">{'create':False, 'is_consignment_picking':True, 'return_picking':True}</field>
+        </record>
+
+    </data>
+
+</odoo>

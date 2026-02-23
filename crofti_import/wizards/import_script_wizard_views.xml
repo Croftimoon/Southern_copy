@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_import_script_wizard_form" model="ir.ui.view">
+        <field name="name">import.script.wizard.form</field>
+        <field name="model">import.script.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="script_line_ids">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="file" filename="name"/>
+                        </tree>
+                        <form string="Script">
+                            <field name="name"/>
+                            <field name="file" filename="name"/>
+                        </form>
+                    </field>
+                </group>
+                <footer>
+                    <button name="action_upload_scripts" string="Create Scripts" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_import_script_wizard_line_form" model="ir.ui.view">
+        <field name="name">import.script.wizard.line.form</field>
+        <field name="model">import.script.wizard.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="file" filename="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_script_wizard" model="ir.actions.act_window">
+        <field name="name">Upload Scripts</field>
+        <field name="res_model">import.script.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

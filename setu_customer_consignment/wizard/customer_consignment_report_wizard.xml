@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="customer_consignment_report_form" model="ir.ui.view">
+            <field name="name">customer.consignment.report.form</field>
+            <field name="model">customer.consignment.report</field>
+            <field name="arch" type="xml">
+                <form string="Consignee Analysis Report">
+                    <sheet string="Consignee Analysis">
+                        <group expand="0" string="Filters">
+                            <group expand="0" string="Choose dates to calculate sales">
+                                <field name="start_date" required="True"/>
+                                <field name="end_date" required="True"/>
+                            </group>
+                            <group expand="0"></group>
+                        </group>
+                        <group expand="0">
+                            <group expand="0" string="Products &#038; Categories">
+                                <field name="product_category_ids" widget="many2many_tags"
+                                       options="{'no_create': True}"/>
+                                <field name="product_ids" widget="many2many_tags"
+                                       domain="[('property_is_consignment_product', '=', True), ('id','in',products_ids)]"
+                                       options="{'no_create': True}"/>
+                                <field name="products_ids" invisible="1"/>
+                            </group>
+                            <group expand="0" string="Companies &#038; Warehouses">
+                                <field name="company_ids" widget="many2many_tags"
+                                       domain="[('id', 'in', allowed_company_ids)]"
+                                       options="{'no_create': True}"/>
+                                <field name="consignee_ids" widget="many2many_tags"
+                                       domain="[('property_is_consignment_customer', '=', True)]"
+                                       options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button name="View_report" string="View Data" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_consignee_report_all" model="ir.actions.act_window">
+            <field name="name">Consignee Reports</field>
+            <field name="res_model">customer.consignment.report</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

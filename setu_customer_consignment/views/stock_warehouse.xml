@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="consignment_development_stock_warehouse_view" model="ir.ui.view">
+        <field name="name">consignment.development.stock.warehouse.form</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="is_consignment_warehouse" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="consignment_warehouse_action" model="ir.actions.act_window">
+        <field name="name">Consignment Warehouse</field>
+        <field name="res_model">stock.warehouse</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_consignment_warehouse','=', True)]</field>
+        <field name="context">{'is_consignment_warehouse':True}</field>
+    </record>
+</odoo>

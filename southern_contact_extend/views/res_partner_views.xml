@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_partner_form_inherit_alternate_codes" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.alternate.codes</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='ref']" position="after">
+                <field name="alternate_code_ids" widget="many2many_tags" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_partner_filter_inherit_alternate_codes" model="ir.ui.view">
+        <field name="name">res.partner.search.inherit.alternate.codes</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="filter_domain">['|', '|', '|', '|', '|', ('complete_name', 'ilike', self), ('ref', 'ilike', self), ('email', 'ilike', self), ('vat', 'ilike', self), ('company_registry', 'ilike', self), ('alternate_code_ids.name', 'ilike', self)]</attribute>
+            </field>
+            <xpath expr="//search/field[@name='name']" position="after">
+                <field name="alternate_code_ids"
+                       string="Alternate Codes"
+                       filter_domain="[('alternate_code_ids.name', 'ilike', self)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

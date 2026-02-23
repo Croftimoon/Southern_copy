@@ -1,0 +1,522 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* setu_customer_consignment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-06 10:09+0000\n"
+"PO-Revision-Date: 2023-04-06 10:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid ""
+"<span class=\"o_stat_text\">Customer</span>\n"
+"                                    <span class=\"o_stat_text\">Preview</span>"
+msgstr "Kundin"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "<span>Payment</span>"
+msgstr "Zahlung"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "<span>Signature</span>"
+msgstr "Unterschrift"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Add a note"
+msgstr "Füg ein Notiz hinzu"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Add a product"
+msgstr "Fügen Sie ein Produkt hinzu"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Add a section"
+msgstr "Fügen Sie einen Abschnitt hinzu"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid ""
+"Are you sure you want to void the authorized transaction? This action can't "
+"be undone."
+msgstr "Möchten Sie die autorisierte Transaktion wirklich stornieren? Diese Aktion kann nicht rückgängig gemacht werden."
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Cancel"
+msgstr "Stornieren"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Capture Transaction"
+msgstr "Transaktion erfassen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_sale_order__consignment_customer
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_consignment_customers
+msgid "Consignment Customer"
+msgstr "Sendungskunde"
+
+#. module: setu_customer_consignment
+#: model:ir.actions.act_window,name:setu_customer_consignment.consignment_development_invoice_action
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_consignment_invoice
+msgid "Consignment Invoice"
+msgstr "Sendungsrechnung"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_res_partner__property_consignment_location_id
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_res_users__property_consignment_location_id
+msgid "Consignment Location"
+msgstr "Sendungsort"
+
+#. module: setu_customer_consignment
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_consignment_orders
+msgid "Consignment Orders"
+msgstr "Sendungsaufträge"
+
+#. module: setu_customer_consignment
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_consignment_product
+msgid "Consignment Product"
+msgstr "Sendungsprodukt"
+
+#. module: setu_customer_consignment
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_consignment_returned
+msgid "Consignment Returned"
+msgstr "Sendung zurückgeschickt"
+
+#. module: setu_customer_consignment
+#: model:ir.actions.act_window,name:setu_customer_consignment.consignment_development_stock_move_line_action
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_consignment_stock
+msgid "Consignment Stock"
+msgstr "Konsignationslager"
+
+#. module: setu_customer_consignment
+#: model:ir.actions.act_window,name:setu_customer_consignment.consignment_development_stock_picking
+#: model:ir.actions.act_window,name:setu_customer_consignment.consignment_development_stock_picking_returned
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_consignment_transfers
+msgid "Consignment Transfers"
+msgstr "Sendungsübertragungen"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_res_partner
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_picking__partner_id
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Create Invoice"
+msgstr "Rechnung erstellen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_res_partner_action
+msgid "Create a new customer in your address book"
+msgstr "Erstellen Sie einen neuen Kunden in Ihrem Adressbuch"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_consignment_sale_order_action
+msgid "Create a new quotation, the first step of a new sale!"
+msgstr "Erstellen Sie ein neues Angebot, der erste Schritt eines neuen Verkaufs!"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_invoice_action
+msgid "Create new document"
+msgstr "Neues Dokument erstellen"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_location__partner_id
+msgid "Customer"
+msgstr "Kundin"
+
+#. module: setu_customer_consignment
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_main_customer_consignment_process
+msgid "Customer Consignment"
+msgstr "Kundensendung"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Customer Signature"
+msgstr "Unterschrift des Kunden"
+
+#. module: setu_customer_consignment
+#: model:ir.actions.act_window,name:setu_customer_consignment.consignment_development_res_partner_action
+msgid "Customers"
+msgstr "Kunden"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_product_template_action
+msgid ""
+"Define the components and finished products you wish to use in\n"
+"                    bill of materials and manufacturing orders."
+msgstr "Definieren Sie die Komponenten und Endprodukte, die Sie in Stücklisten und Fertigungsaufträgen verwenden möchten."
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Delivered"
+msgstr "Geliefert"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.consignment_view_order_form_inherit_sale_stock
+msgid "Delivery"
+msgstr "Lieferung"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Delivery Date"
+msgstr "Liefertermin"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Disc.%"
+msgstr "Rabatt.%"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Expected:"
+msgstr "Erwartet:"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_stock_location
+msgid "Inventory Locations"
+msgstr "Lagerorte"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Invoiced"
+msgstr "In Rechnung gestellt"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Invoices"
+msgstr "Rechnungen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Invoicing and Payments"
+msgstr "Rechnungsstellung und Zahlungen"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_move_line__is_consignment
+msgid "Is Consignment"
+msgstr "Ist Sendung"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_res_partner__property_is_consignment_customer
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_res_users__property_is_consignment_customer
+msgid "Is Consignment Customer"
+msgstr "Ist Konsignationskunde"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_account_bank_statement_line__property_is_consignment_invoice
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_account_move__property_is_consignment_invoice
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_account_payment__property_is_consignment_invoice
+msgid "Is Consignment Invoice"
+msgstr "Ist eine Sendungsrechnung"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_location__is_consignment_location
+msgid "Is Consignment Location"
+msgstr "Ist der Sendungsort"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_sale_order__property_is_consignment_order
+msgid "Is Consignment Order"
+msgstr "Ist Sendungsauftrag"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_product_product__property_is_consignment_product
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_product_template__property_is_consignment_product
+msgid "Is Consignment Product"
+msgstr "Ist Konsignationsprodukt"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_picking__is_consignment_picking
+msgid "Is Consignment Transfer"
+msgstr "Ist Sendungsübergabe"
+
+#. module: setu_customer_consignment
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_warehouse__is_consignment_warehouse
+msgid "Is Consignment Warehouse"
+msgstr "Ist Konsignationslager"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_account_move
+msgid "Journal Entry"
+msgstr "Tagebucheintrag"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_product_template_action
+msgid "No product found. Let's create one!"
+msgstr "Kein Produkt gefunden. Lassen Sie uns einen erstellen!"
+
+#. module: setu_customer_consignment
+#. odoo-python
+#: code:addons/setu_customer_consignment/models/stock_rule.py:0
+#, python-format
+msgid "No source location defined on stock rule: %s!"
+msgstr "Kein Quellstandort in der Bestandsregel definiert: %s!"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_stock_picking
+msgid "No transfer found. Let's create one!"
+msgstr "Keine Übertragung gefunden. Lassen Sie uns einen erstellen!"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.consignment_view_order_tree
+msgid "Number"
+msgstr "Nummer"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_res_partner_action
+msgid "Odoo helps you easily track all activities related to a customer."
+msgstr "Odoo hilft Ihnen, alle Aktivitäten im Zusammenhang mit einem Kunden einfach zu verfolgen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_consignment_sale_order_action
+msgid ""
+"Once the quotation is confirmed, it becomes a sales order.\n"
+"                    <br>\n"
+"                    You will be able to create an invoice and collect the payment."
+msgstr "Sobald das Angebot bestätigt ist, wird es zu einem Verkaufsauftrag. Sie können eine Rechnung erstellen und die Zahlung einziehen."
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Online confirmation"
+msgstr "Online-Bestätigung"
+
+#. module: setu_customer_consignment
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_operation_process
+msgid "Operations"
+msgstr "Operationen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.consignment_view_order_tree
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Order Date"
+msgstr "Auftragsdatum"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Order Lines"
+msgstr "Auftragszeilen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Other Info"
+msgstr "Andere Information"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_product_template
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_move__product_id
+#: model:ir.model.fields,field_description:setu_customer_consignment.field_stock_move_line__product_id
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Product"
+msgstr "Produkt"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Produktbewegungen ( Lagerbewegungslinie )"
+
+#. module: setu_customer_consignment
+#: model:ir.actions.act_window,name:setu_customer_consignment.consignment_development_product_template_action
+msgid "Products"
+msgstr "Produkte"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Quantity:"
+msgstr "Menge:"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Quotation Date"
+msgstr "Angebotsdatum"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Recompute all prices based on this pricelist"
+msgstr "Alle Preise auf Basis dieser Preisliste neu berechnen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Recompute all taxes based on this fiscal position"
+msgstr "Berechnen Sie alle Steuern basierend auf dieser Steuerposition neu"
+
+#. module: setu_customer_consignment
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_Reports
+msgid "Reports"
+msgstr "Berichte"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Sales"
+msgstr "Verkauf"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_sale_order
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Sales Order Lines"
+msgstr "Verkaufsauftragszeilen"
+
+#. module: setu_customer_consignment
+#: model:ir.actions.act_window,name:setu_customer_consignment.consignment_development_consignment_sale_order_action
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.consignment_view_order_tree
+msgid "Sales Orders"
+msgstr "Verkaufsaufträge"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Section Name (eg. Products, Services)"
+msgstr "Abschnittsname (z. B. Produkte, Dienstleistungen)"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Send PRO-FORMA Invoice"
+msgstr "Senden Sie eine PRO-FORMA-Rechnung"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Send by Email"
+msgstr "Per E-Mail gesendet"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Set to Quotation"
+msgstr "Auf Angebot setzen"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_stock_move
+msgid "Stock Move"
+msgstr "Aktienumzug"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_stock_rule
+msgid "Stock Rule"
+msgstr "Aktienregel"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.consignment_view_order_tree
+msgid "Tax Total"
+msgstr "Gesamtsteuer"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Terms and conditions..."
+msgstr "Geschäftsbedingungen..."
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid ""
+"This will update all taxes based on the currently selected fiscal position."
+msgstr "Dadurch werden alle Steuern basierend auf der aktuell ausgewählten Steuerposition aktualisiert."
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "This will update all unit prices based on the currently set pricelist."
+msgstr "Dadurch werden alle Einheitspreise basierend auf der aktuell eingestellten Preisliste aktualisiert."
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.consignment_view_order_tree
+msgid "Total Tax Excluded"
+msgstr "Gesamtsteuer ausgeschlossen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.consignment_view_order_tree
+msgid "Total Tax Included"
+msgstr "Gesamtsteuer inbegriffen"
+
+#. module: setu_customer_consignment
+#: model:ir.ui.menu,name:setu_customer_consignment.menu_traceability
+msgid "Traceability"
+msgstr "Rückverfolgbarkeit"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Tracking"
+msgstr "Verfolgung"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_stock_picking
+msgid "Transfer"
+msgstr "Überweisen"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.actions.act_window,help:setu_customer_consignment.consignment_development_stock_picking
+msgid "Transfers allow you to move products from one location to another."
+msgstr "Transfers ermöglichen es Ihnen, Produkte von einem Standort an einen anderen zu bewegen."
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Unit Price:"
+msgstr "Einzelpreis:"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "UoM"
+msgstr "ME"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Update Prices"
+msgstr "Preise aktualisieren"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Update Taxes"
+msgstr "Steuern aktualisieren"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "Void Transaction"
+msgstr "Ungültige Transaktion"
+
+#. module: setu_customer_consignment
+#: model:ir.model,name:setu_customer_consignment.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Lagerhaus"
+
+#. module: setu_customer_consignment
+#. odoo-python
+#: code:addons/setu_customer_consignment/models/res_partner.py:0
+#, python-format
+msgid "You have Stock in %s, Please Clear It First"
+msgstr "Sie haben Lagerbestand %S, Bitte löschen Sie es zuerst"
+
+#. module: setu_customer_consignment
+#: model_terms:ir.ui.view,arch_db:setu_customer_consignment.view_order_consignment_form
+msgid "days"
+msgstr "Tage"

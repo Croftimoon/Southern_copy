@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit the stock delivery report template to add conditional docket headers -->
+        <template id="report_delivery_document_custom" inherit_id="stock.report_delivery_document">
+
+            <!-- Add conditional docket header after the page div starts -->
+            <xpath expr="//div[@class='page']/h2" position="before">
+                <!-- Conditional Docket Header based on picking type or reference -->
+                <h1 t-if="o.picking_type_id.code == 'outgoing' or 'OUT' in (o.name or '')"
+                    style="font-size: 36px; font-weight: bold; margin-bottom: 20px;">
+                    Delivery Docket
+                </h1>
+                <h1 t-elif="o.picking_type_id.code == 'internal' or 'INT' in (o.name or '')"
+                    style="font-size: 36px; font-weight: bold; margin-bottom: 20px;">
+                    Transfer Docket
+                </h1>
+                <h1 t-elif="(o.picking_type_id.code == 'incoming' or 'IN' in (o.name or '')) and (o.origin or '').startswith('P')"
+                    style="font-size: 36px; font-weight: bold; margin-bottom: 20px;">
+                    Receipt Docket
+                </h1>
+                <h1 t-elif="o.picking_type_id.code == 'incoming' or 'IN' in (o.name or '')"
+                    style="font-size: 36px; font-weight: bold; margin-bottom: 20px;">
+                    Return Docket
+                </h1>
+                <h1 t-else=""
+                    style="font-size: 36px; font-weight: bold; margin-bottom: 20px;">
+                    Docket
+                </h1>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

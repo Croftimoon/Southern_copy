@@ -1,0 +1,90 @@
+<odoo>
+  <template id="report_invoice_document_inherit_client_id" inherit_id="account.report_invoice_document">
+    <xpath expr="//div[@name='address_not_same_as_shipping']//child::address[1]" position="inside">
+      <address class="mb-0">
+        <t t-if="o.partner_id">
+          <t t-if="o.client_id">
+            <t t-esc="o.client_id.display_name"/><br/>
+          </t>
+          <t t-else="">
+            <t t-esc="o.partner_id.name"/><br/>
+          </t>
+          <t t-esc="o.partner_id.street"/><br/>
+          <t t-if="o.partner_id.street2">
+            <t t-esc="o.partner_id.street2"/><br/>
+          </t>
+          <t t-if="o.partner_id.city">
+            <t t-esc="o.partner_id.city"/>
+            <t t-if="o.partner_id.state_id">, <t t-esc="o.partner_id.state_id.name"/></t>
+            <t t-if="o.partner_id.zip"> <t t-esc="o.partner_id.zip"/></t><br/>
+          </t>
+          <t t-if="o.partner_id.country_id">
+            <t t-esc="o.partner_id.country_id.name"/><br/>
+          </t>
+        </t>
+      </address>
+    </xpath>
+    <xpath expr="//div[@name='address_same_as_shipping']//child::address[1]" position="replace">
+      <address class="mb-0">
+        <t t-if="o.partner_id">
+          <t t-if="o.client_id">
+            <t t-esc="o.client_id.display_name"/><br/>
+          </t>
+          <t t-else="">
+            <t t-esc="o.partner_id.name"/><br/>
+          </t>
+          <t t-esc="o.partner_id.street"/><br/>
+          <t t-if="o.partner_id.street2">
+            <t t-esc="o.partner_id.street2"/><br/>
+          </t>
+          <t t-if="o.partner_id.city">
+            <t t-esc="o.partner_id.city"/>
+            <t t-if="o.partner_id.state_id">, <t t-esc="o.partner_id.state_id.name"/></t>
+            <t t-if="o.partner_id.zip"> <t t-esc="o.partner_id.zip"/></t><br/>
+          </t>
+          <t t-if="o.partner_id.country_id">
+            <t t-esc="o.partner_id.country_id.name"/><br/>
+          </t>
+        </t>
+      </address>
+    </xpath>
+    <xpath expr="//div[@name='no_shipping']//child::address[1]" position="inside">
+      <address class="mb-0">
+        <t t-if="o.partner_id">
+          <t t-if="o.client_id">
+            <t t-esc="o.client_id.display_name"/><br/>
+          </t>
+          <t t-else="">
+            <t t-esc="o.partner_id.name"/><br/>
+          </t>
+          <t t-esc="o.partner_id.street"/><br/>
+          <t t-if="o.partner_id.street2">
+            <t t-esc="o.partner_id.street2"/><br/>
+          </t>
+          <t t-if="o.partner_id.city">
+            <t t-esc="o.partner_id.city"/>
+            <t t-if="o.partner_id.state_id">, <t t-esc="o.partner_id.state_id.name"/></t>
+            <t t-if="o.partner_id.zip"> <t t-esc="o.partner_id.zip"/></t><br/>
+          </t>
+          <t t-if="o.partner_id.country_id">
+            <t t-esc="o.partner_id.country_id.name"/><br/>
+          </t>
+        </t>
+      </address>
+    </xpath>
+    <xpath expr="//div[@name='customer_code']" position="after">
+      <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2" t-if="o.patient_name" name="patient_name">
+        <strong>Patient:</strong><br/>
+        <span t-field="o.patient_name"/>
+      </div>
+      <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2" t-if="o.surgery_date" name="surgery_date">
+        <strong>Surgery Date:</strong><br/>
+        <span t-field="o.surgery_date"/>
+      </div>
+      <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2" t-if="o.client_id" name="client_id">
+        <strong>Clinician:</strong><br/>
+        <span t-field="o.client_id.name"/>
+      </div>
+    </xpath>
+  </template>
+</odoo>

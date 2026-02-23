@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_pricelist_item_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form.inherit</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="vendor_id"
+                       options="{'no_create':1}"
+                       invisible="applied_on != '4_vendor'"
+                       required="applied_on == '4_vendor'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_tree_view_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.item.tree.inherit</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_tree_view_from_product"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="vendor_id"
+                       options="{'no_create_edit':1, 'no_open': 1}"
+                       optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

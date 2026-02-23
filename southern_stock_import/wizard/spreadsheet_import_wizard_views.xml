@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_spreadsheet_import_wizard" model="ir.ui.view">
+        <field name="name">spreadsheet.import.wizard.form</field>
+        <field name="model">spreadsheet.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Spreadsheet">
+                <sheet>
+                    <div class="alert alert-info" role="alert">
+                        <h5><i class="fa fa-upload"></i> Import Spreadsheet</h5>
+                        <p>Upload your spreadsheet file (CSV, XLS, or XLSX) and select the columns containing product codes and quantities.</p>
+                    </div>
+
+                    <group>
+                        <field name="order_type" readonly="1" invisible="1"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="file_data" filename="file_name" required="1"/>
+                    </group>
+
+                    <group string="Import Settings" invisible="not file_data">
+                        <field name="first_row_is_header"/>
+                        <field name="product_column_index"
+                               widget="spreadsheet_column_dropdown"
+                               options="{'placeholder': 'Select Product Column'}"
+                               required="1"/>
+                        <field name="quantity_column_index"
+                               widget="spreadsheet_column_dropdown"
+                               options="{'placeholder': 'Select Quantity Column'}"
+                               required="1"/>
+                    </group>
+
+                    <group string="File Preview" col="1" invisible="not file_data">
+                        <div class="o_spreadsheet_import_preview">
+                            <field name="first_row_preview" readonly="1" nolabel="1"
+                                   widget="html"/>
+                        </div>
+                    </group>
+
+                    <field name="order_id" invisible="1"/>
+                </sheet>
+                <footer>
+                    <button name="action_import" string="Import Data" type="object"
+                            invisible="not product_column_index or not quantity_column_index"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for the spreadsheet import wizard -->
+    <record id="action_spreadsheet_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import Spreadsheet</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">spreadsheet.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>

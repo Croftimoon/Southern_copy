@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add customer code and patient name to customer statement report -->
+    <template id="account_statement_report_patient_name" inherit_id="l10n_account_customer_statements.customer_statements">
+
+        <!-- Change heading from CUSTOMER STATEMENTS to CUSTOMER STATEMENT -->
+        <xpath expr="//h2[text()='CUSTOMER STATEMENTS']" position="replace">
+            <h2>CUSTOMER STATEMENT</h2>
+        </xpath>
+
+        <!-- Add customer code to header -->
+        <xpath expr="//div[@class='col-6']/div[@class='row text-muted']" position="after">
+            <div class="row" t-if="p.ref">
+                <strong>Customer Code:</strong> <span t-field="p.ref"/>
+            </div>
+        </xpath>
+
+        <!-- Add patient name column header -->
+        <xpath expr="//th[@class='text-start border-start border-end border-dark-subtle'][@scope='col'][2]" position="after">
+            <th class="text-start border-start border-end border-dark-subtle" scope="col">Patient Name</th>
+        </xpath>
+
+        <!-- Add patient name data in table rows -->
+        <xpath expr="//td[@class='border-start border-end border-dark-subtle text-wrap']" position="after">
+            <td class="border-start border-end border-dark-subtle align-middle">
+                <span t-out="line['patient_name']"/>
+            </td>
+        </xpath>
+
+    </template>
+</odoo>

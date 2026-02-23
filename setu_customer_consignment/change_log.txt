@@ -1,0 +1,6 @@
+Date         :  13th December 2023
+Version      : '17.0.0.0' (in __manifest__.py)
+Odoo Version : 17
+Done by : Richisha
+Tested by : Nikhil Sudra
+Description : Initial push of the app.

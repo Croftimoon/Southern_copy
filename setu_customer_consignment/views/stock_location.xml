@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Updated stock location form view -->
+        <record id="consignment_development_view_location_form" model="ir.ui.view">
+            <field name="name">consignment.development.view.location.form</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <field name="replenish_location" position="after">
+                    <field name="is_consignment_location"/>
+                    <field name="consignment_partner_ids"
+                           invisible="not is_consignment_location"
+                           widget="many2many_tags"
+                           string="Consignment Customers"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Updated consignment location action -->
+        <record id="consignment_location_action" model="ir.actions.act_window">
+            <field name="name">Consignment Locations</field>
+            <field name="res_model">stock.location</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_consignment_location', '=', True)]</field>
+            <field name="context">{'default_is_consignment_location': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No consignment locations found
+                </p>
+                <p>
+                    Consignment locations are automatically created when setting up
+                    consignment customers.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="setu_consignment_ledger_report_action" model="ir.actions.act_window">
+            <field name="name">Consignment Ledger Report</field>
+            <field name="res_model">setu.consignment.ledger.report</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="setu_consignment_ledger_bi_report_form" model="ir.ui.view">
+            <field name="name">setu.consignment.ledger.bi.report.form</field>
+            <field name="model">setu.consignment.ledger.bi.report</field>
+            <field name="arch" type="xml">
+                <form string="Consignment Ledger Detailed Report" create="false">
+                    <sheet string="Consignment Ledger Detailed Report">
+                        <group expand="0" readonly="1">
+                            <group>
+                                <field name="date_order" readonly="1"/>
+                                <field name="consignee_id" readonly="1"/>
+                                <field name="product_id" readonly="1"/>
+                                <field name="wizard_id" invisible="1" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="company_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <div readonly="1">
+                                <table style="width:50%; align:center; background-color:#;" border="0"
+                                       cellpadding="5px">
+                                    <h2>
+                                        <tr style="text-align:center">
+                                            <th style="width:25%; font-size: 22px">
+                                                <label for="opening_stock"/>
+                                            </th>
+                                            <th style="width:25%; font-size: 22px">
+                                                <label for="transferred_qty"/>
+                                            </th>
+                                            <th style="width:25%; font-size: 22px">
+                                                <label for="sold_qty"/>
+                                            </th>
+                                            <th style="width:25%; font-size: 22px">
+                                                <label for="returned_qty"/>
+                                            </th>
+                                            <th style="width:25%; font-size: 22px">
+                                                <label for="sold_return_quantity"/>
+                                            </th>
+                                            <th style="width:25%; font-size: 22px">
+                                                <label for="closing"/>
+                                            </th>
+                                        </tr>
+                                        <tr style="text-align:center">
+                                            <td style="width:25%; color:#3498db;">
+                                                <field name="opening_stock" nolabel="1" readonly="1"/>
+                                            </td>
+                                            <td style="width:25%; color:#28b463;">
+                                                <field name="transferred_qty" nolabel="1" readonly="1"/>
+                                            </td>
+                                            <td style="width:25%; color:#ff4240;">
+                                                <field name="sold_qty" nolabel="1" readonly="1"/>
+                                            </td>
+                                            <td style="width:25%; color:#ff4240;">
+                                                <field name="returned_qty" nolabel="1" readonly="1"/>
+                                            </td>
+                                            <td style="width:25%;">
+                                                <field name="sold_return_quantity" nolabel="1" readonly="1"/>
+                                            </td>
+                                            <td style="width:25%; color:#3498db;">
+                                                <field name="closing" nolabel="1" readonly="1"/>
+                                            </td>
+                                        </tr>
+                                    </h2>
+                                </table>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="setu_consignment_ledger_bi_report_tree" model="ir.ui.view">
+            <field name="name">setu.consignment.ledger.bi.report.tree</field>
+            <field name="model">setu.consignment.ledger.bi.report</field>
+            <field name="arch" type="xml">
+                <tree string="Consignment Ledger Report" create="false">
+                    <field name="date_order"/>
+                    <field name="company_id"/>
+                    <field name="consignee_id"/>
+                    <field name="product_category_id" optional="hide"/>
+                    <field name="product_id"/>
+                    <field name="opening_stock"/>
+                    <field name="transferred_qty" optional="show"/>
+                    <field name="sold_qty" optional="show"/>
+                    <field name="returned_qty" optional="show"/>
+                    <field name="sold_return_quantity" optional="show"/>
+                    <field name="closing"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="setu_consignment_ledger_bi_report_searchview_for_company" model="ir.ui.view">
+            <field name="name">setu.consignment.ledger.bi.report.searchview.company</field>
+            <field name="model">setu.consignment.ledger.bi.report</field>
+            <field name="arch" type="xml">
+                <search string="Consignment Ledger Report">
+                    <field name="consignee_id"/>
+                    <field name="product_id"/>
+                    <field name="product_category_id"/>
+                    <field name="company_id"/>
+                    <filter string="Consignee" context="{'group_by':'consignee_id'}" name="consignee_id_groupby"/>
+                    <filter string="Product Category" context="{'group_by':'product_category_id'}"
+                            name="product_category_groupby"/>
+                    <filter string="Product" context="{'group_by':'product_id'}" name="product_groupby"/>
+                    <filter string="Company" context="{'group_by':'company_id'}" name="company_groupby"/>
+                    <filter string="Date" context="{'group_by':'date_order'}" name="date_groupby"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

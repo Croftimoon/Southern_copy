@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Stock Picking Form View -->
+    <record id="view_picking_form_warehouse_note" model="ir.ui.view">
+        <field name="name">stock.picking.form.warehouse.note</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!-- Add sale_id field invisible so we can use it in conditions -->
+            <xpath expr="//field[@name='is_locked']" position="after">
+                <field name="sale_id" invisible="1"/>
+            </xpath>
+
+            <!-- Add sales note field in its own section -->
+            <xpath expr="//field[@name='note']" position="after">
+                <separator string="Instructions from Sales Team"
+                           invisible="warehouse_note == False"/>
+                <field name="warehouse_note"
+                       readonly="1"
+                       invisible="warehouse_note == False"
+                       options="{'style-inline': true}"
+                       style="min-height: 150px;"
+                       nolabel="1"/>
+            </xpath>
+
+            <!-- Add send message button in header -->
+            <xpath expr="//header" position="inside">
+                <button string="Send Message to Sales"
+                        type="object"
+                        name="send_message_to_sales"
+                        class="btn-primary"
+                        invisible="sale_id == False"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

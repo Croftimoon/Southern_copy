@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_partner_form_inherit_custom_page" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.custom.page</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Master Records" invisible="not property_is_consignment_customer" groups="setu_customer_consignment.group_setu_consignment_user">
+                    <button name="%(action_excel_import_wizard)d"
+                            string="Import Master Records"
+                            type="action"
+                            class="btn-primary"
+                            invisible="not property_is_consignment_customer or consignment_ids"
+                            context="{'active_id': id}"
+                            groups="setu_customer_consignment.group_setu_consignment_user"/>
+                    <field name="consignment_ids" mode="tree,form" editable="bottom">
+                        <tree editable="bottom" string="Master Records">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='property_is_consignment_customer']" position="attributes">
+                <attribute name="invisible">not is_company</attribute>
+            </xpath>
+            <xpath expr="//field[@name='property_consignment_location_id']" position="attributes">
+                <attribute name="invisible">not is_company</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="readonly">property_is_consignment_customer</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="setu_customer_consignment.consignment_development_res_partner_action" model="ir.actions.act_window">
+        <field name="context">{'default_property_is_consignment_customer': True, 'default_is_company': True}</field>
+    </record>
+</odoo>

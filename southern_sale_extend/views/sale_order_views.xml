@@ -1,0 +1,251 @@
+<odoo>
+    <record id="view_order_form_inherit_custom_field" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.custom.field</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_id" readonly="state in ['cancel', 'sale']"/>
+            </xpath>
+            <xpath expr="//group[@name='partner_details']" position="inside">
+                <field name="patient_name"/>
+            </xpath>
+            <xpath expr="//group[@name='order_details']" position="inside">
+                <field name="surgery_date"/>
+            </xpath>
+            <xpath expr="//button[@name='payment_action_capture']" position="before">
+                <button name="action_set_delivered" string="Set Delivered"
+                        invisible="is_delivered or state != 'sale'"
+                        type="object" class="oe_highlight"
+                        groups="southern_sale_extend.group_set_sales_delivered"/>
+                <field name="is_delivered" invisible="True"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_filter_inherit_custom_field" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.custom.field</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_id"/>
+                <field name="patient_name"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_tree_inherit_custom_field" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.custom.field</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_id" optional="show"/>
+                <field name="patient_name" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter_delivery_tracking" model="ir.ui.view">
+        <field name="name">sale.order.search.delivery.tracking</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="picking_ids" string="Delivery Tracking"
+                       filter_domain="[('picking_ids.carrier_tracking_ref', 'ilike', self)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_filter_inherit_custom_group" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.custom.group</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Sales Team Member" name="group_by_team_member" context="{'group_by': 'sales_team_member'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form_inherit_hospital_workflow" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.hospital.workflow</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='surgery_date']" position="after">
+                <field name="hospital_order"
+                       readonly="state not in ['draft', 'sent']"/>
+                <field name="expected_stock_return_date"
+                       invisible="not hospital_order"/>
+            </xpath>
+            <xpath expr="//header/field[@name='state']" position="before">
+                <field name="hospital_state" widget="statusbar" invisible="not hospital_order" options="{'clickable': '1'}" statusbar_visible="new,awaiting_return,waiting_po"/>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <button name="action_print_proforma_confirm"
+                        type="object"
+                        string="Print Pro-forma &amp; Confirm"
+                        class="btn-primary"
+                        invisible="not hospital_order or state not in ['draft', 'sent', 'sale'] or hospital_state != 'new'"/>
+                <button name="action_send_final_proforma_wait_po"
+                        type="object"
+                        string="Send Final Pro-forma"
+                        class="btn-primary"
+                        invisible="not hospital_order or hospital_state != 'awaiting_return'"/>
+            </xpath>
+            <xpath expr="//page[@name='other_information']" position="inside">
+                <group string="Hospital Workflow Tracking"
+                       invisible="not hospital_order">
+                    <field name="proforma_sent_date" readonly="1"/>
+                    <field name="po_requested_date" readonly="1"/>
+                    <field name="expected_stock_return_date"/>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="sale_order_tree_inherit_hospital" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.hospital</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="hospital_order" column_invisible="True"/>
+                <field name="hospital_state"
+                       string="Hospital Status"
+                       invisible="not hospital_order"
+                       optional="show"
+                       widget="badge"
+                       decoration-success="hospital_state == 'invoiced'"
+                       decoration-info="hospital_state == 'new'"
+                       decoration-primary="hospital_state == 'awaiting_return'"
+                       decoration-danger="hospital_state == 'waiting_po'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_hospital_order_tree" model="ir.ui.view">
+        <field name="name">hospital.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <tree string="Hospital Orders" sample="1" decoration-muted="state == 'cancel'">
+                <field name="name" readonly="1"/>
+                <field name="partner_id" readonly="1"/>
+                <field name="partner_shipping_id" readonly="1"/>
+                <field name="partner_invoice_id" readonly="1"/>
+                <field name="user_id" optional="show" widget="many2one_avatar_user"/>
+                <field name="date_order" optional="show"/>
+                <field name="proforma_sent_date" optional="show"/>
+                <field name="expected_stock_return_date" optional="show"/>
+                <field name="po_requested_date" optional="show"/>
+                <field name="hospital_state"
+                       string="Hospital Status"
+                       invisible="not hospital_order"
+                       optional="show"
+                       widget="badge"
+                       decoration-success="hospital_state == 'invoiced'"
+                       decoration-info="hospital_state == 'new'"
+                       decoration-primary="hospital_state == 'awaiting_return'"
+                       decoration-danger="hospital_state == 'waiting_po'"/>
+                <field name="state"
+                    decoration-success="state == 'sale'"
+                    decoration-info="state == 'draft'"
+                    decoration-primary="state == 'sent'"
+                    widget="badge"
+                    optional="hide"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="amount_total"
+                       sum="Total Tax Included"
+                       widget="monetary"
+                       decoration-bf="1"
+                       decoration-info="invoice_status == 'to invoice'"
+                       optional="show"/>
+                <field name="hospital_order" column_invisible="True"/>
+                <field name="invoice_status"
+                    decoration-success="invoice_status == 'invoiced'"
+                    decoration-info="invoice_status == 'to invoice'"
+                    decoration-warning="invoice_status == 'upselling'"
+                    widget="badge"
+                    optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Hospital Orders Menu -->
+    <record id="action_sale_order_hospital" model="ir.actions.act_window">
+        <field name="name">Hospital Orders</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                                      (0, 0, {'view_mode': 'tree', 'view_id': ref('view_hospital_order_tree')}),
+                                      (0, 0, {'view_mode': 'form'})]"/>
+        <field name="domain">[('hospital_order', '=', True)]</field>
+        <field name="context">{'default_hospital_order': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a hospital order
+            </p>
+            <p>
+                Hospital orders follow a special consignment workflow with pro-forma invoices.
+            </p>
+        </field>
+    </record>
+
+    <record id="sale.action_orders" model="ir.actions.act_window">
+        <field name="domain">[('hospital_order', '=', False)]</field>
+    </record>
+
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="domain">[('state', 'in', ['draft', 'sent']), ('hospital_order', '=', False)]</field>
+    </record>
+
+    <menuitem id="menu_sale_hospital"
+              name="Hospital Orders"
+              parent="sale.sale_order_menu"
+              action="action_sale_order_hospital"
+              sequence="60"/>
+
+    <!-- Inherit sale order form view -->
+    <record id="sale_order_form_discount_pricelist_readonly" model="ir.ui.view">
+        <field name="name">sale.order.form.discount.pricelist.readonly</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pricelist_id']" position="before">
+                <field name="pricelist_readonly" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='pricelist_id']" position="attributes">
+                <attribute name="readonly">pricelist_readonly</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before">
+                <field name="discount_readonly" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="attributes">
+                <attribute name="readonly">discount_readonly</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="attributes">
+                <attribute name="readonly">discount_readonly</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="before">
+                <field name="discount_readonly" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='discount']" position="attributes">
+                <attribute name="readonly">discount_readonly</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="attributes">
+                <attribute name="readonly">discount_readonly</attribute>
+            </xpath>
+            <xpath expr="//div[@name='so_button_below_order_lines']/button[@name='action_open_discount_wizard']" position="attributes">
+                <attribute name="groups">southern_sale_extend.group_sale_discount_edit</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale.action_report_saleorder" model="ir.actions.report">
+        <field name="print_report_name">object._get_report_filename()</field>
+    </record>
+</odoo>

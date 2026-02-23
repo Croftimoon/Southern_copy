@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_consignee_pivot_report" model="ir.ui.view">
+         <field name="name">product.consignee.pivot.report</field>
+         <field name="model">product.consignment.analysis.report</field>
+         <field name="arch" type="xml">
+             <pivot string="Consignee Product Analysis" sample="1">
+                 <field name="product_id" type="row"/>
+                 <field name="sold_amount" type="measure"/>
+                 <field name="sold_quantity" type="measure"/>
+                 <field name="returned_qty" type="measure"/>
+                 <field name="trans_quantity" type="measure"/>
+                 <field name="company_id" type="measure"/>
+                 <field name="sold_pr" type="measure"/>
+                 <field name="returned_pr" type="measure"/>
+             </pivot>
+         </field>
+    </record>
+
+    <record id="product_consignee_graph_report" model="ir.ui.view">
+         <field name="name">product.consignee.graph.report</field>
+         <field name="model">product.consignment.analysis.report</field>
+         <field name="arch" type="xml">
+             <graph string="Consignee Product Analysis">
+                 <field name="trans_quantity" type="measure"/>
+                 <field name="product_id" type="Consignee"/>
+             </graph>
+         </field>
+    </record>
+
+    <record id="product_consignee_tree_report" model="ir.ui.view">
+        <field name="name">product.consignee.tree.report</field>
+        <field name="model">product.consignment.analysis.report</field>
+        <field name="arch" type="xml">
+            <tree string="Consigee Product Report" create="false">
+                <field name="company_id"/>
+                <field name="product_id"/>
+                <field name="trans_amount"/>
+                <field name="trans_quantity" optional="hide"/>
+                <field name="return_amount"/>
+                <field name="returned_pr"/>
+                <field name="returned_qty" optional="hide"/>
+                <field name="sold_amount"/>
+                <field name="sold_pr"/>
+                <field name="sold_quantity" optional="hide"/>
+                <field name="sold_return_amount"/>
+                <field name="sold_return_pr"/>
+                <field name="sold_return_quantity" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_consignee_form_report" model="ir.ui.view">
+        <field name="name">product.consignee.form.report</field>
+        <field name="model">product.consignment.analysis.report</field>
+        <field name="arch" type="xml">
+            <form string="Consignment Ledger Detailed Report" create="false">
+                <sheet string="Consignment Ledger Detailed Report">
+                    <group expand="0" readonly="1">
+                        <group>
+                            <field name="product_id" readonly="1"/>
+                            <field name="wizard_id" invisible="1" readonly="1"/>
+                            <field name="company_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <div readonly="1">
+                            <table style="width:50%; align:center; background-color:#;" border="0"
+                                   cellpadding="5px">
+                                <h2>
+                                    <tr style="text-align:center">
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="sold_amount"/>
+                                        </th>
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="sold_return_amount"/>
+                                        </th>
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="trans_quantity"/>
+                                        </th>
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="sold_quantity"/>
+                                        </th>
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="returned_qty"/>
+                                        </th>
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="sold_return_quantity"/>
+                                        </th>
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="sold_pr"/>
+                                        </th>
+                                        <th style="width:25%; font-size: 22px">
+                                            <label for="returned_pr"/>
+                                        </th>
+                                    </tr>
+                                    <tr style="text-align:center">
+                                        <td style="width:25%; color:#28b463;">
+                                            <field name="sold_amount" nolabel="1" readonly="1"/>
+                                        </td>
+                                        <td style="width:25%; color:#ff4240;">
+                                            <field name="sold_return_amount" nolabel="1" readonly="1"/>
+                                        </td>
+                                        <td style="width:25%; color:#3498db;">
+                                            <field name="trans_quantity" nolabel="1" readonly="1"/>
+                                        </td>
+                                        <td style="width:25%; color:#28b463;">
+                                            <field name="sold_quantity" nolabel="1" readonly="1"/>
+                                        </td>
+                                        <td style="width:25%; color:#ff4240;">
+                                            <field name="returned_qty" nolabel="1" readonly="1"/>
+                                        </td>
+                                        <td style="width:25%;">
+                                            <field name="sold_return_quantity" nolabel="1" readonly="1"/>
+                                        </td>
+                                        <td style="width:25%; color:#28b463;">
+                                            <field name="sold_pr" nolabel="1" readonly="1"/>
+                                        </td>
+                                        <td style="width:25%; color:#ff4240;;">
+                                            <field name="returned_pr" nolabel="1" readonly="1"/>
+                                        </td>
+                                    </tr>
+                                </h2>
+                            </table>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_consignee_report_search_view" model="ir.ui.view">
+        <field name="name">product.consignee.report.search.view</field>
+        <field name="model">product.consignment.analysis.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Consignee Product">
+                <field name="product_id"/>
+                <field name="company_id"/>
+                <filter string="Product" context="{'group_by':'product_id'}" name="product_id_groupby"/>
+                <filter string="Company" context="{'group_by':'company_id'}" name="company_groupby"/>
+            </search>
+        </field>
+    </record>
+</odoo>

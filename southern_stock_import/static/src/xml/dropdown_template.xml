@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="southern_stock_import.SpreadsheetColumnDropdown" owl="1">
+        <select t-ref="select"
+                class="o_input"
+                t-att-value="currentValue"
+                t-att-disabled="state.isLoading"
+                t-on-change="onChange">
+            <option value="">
+                <t t-esc="placeholderText"/>
+            </option>
+            <option t-foreach="state.options"
+                    t-as="option"
+                    t-key="option.value"
+                    t-att-value="option.value"
+                    t-att-selected="currentValue === option.value">
+                <t t-esc="option.label"/>
+            </option>
+        </select>
+    </t>
+</templates>

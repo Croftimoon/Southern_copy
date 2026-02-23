@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_delivered,access_sale_order_delivered,sale.model_sale_order,group_set_sales_delivered,1,1,0,0
+access_delivery_lead_time_user,delivery.lead.time.user,model_delivery_lead_time,sales_team.group_sale_salesman,1,0,0,0
+access_delivery_lead_time_manager,delivery.lead.time.manager,model_delivery_lead_time,sales_team.group_sale_manager,1,1,1,1
+access_crm_team_postcode_user,crm.team.postcode.user,model_crm_team_postcode,sales_team.group_sale_salesman,1,1,1,1
+access_crm_team_postcode_manager,crm.team.postcode.manager,model_crm_team_postcode,sales_team.group_sale_manager,1,1,1,1

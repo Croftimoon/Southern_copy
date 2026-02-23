@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="setu_book_sale_form" model="ir.ui.view">
+            <field name="name">setu.book.sale.form</field>
+            <field name="model">setu.book.sale</field>
+            <field name="arch" type="xml">
+                <form string="Sales Order" class="o_sale_order">
+                    <sheet>
+                        <group name="sale_header">
+                            <group name="partner_details">
+                                <field name="partner_id" widget="res_partner_many2one"
+                                       context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}"
+                                       readonly="1"/>
+                            </group>
+                            <group name="order_details">
+                                <field name="transfer_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Order Lines" name="order_lines">
+                                <field
+                                        name="order_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                >
+                                    <tree string="Sales Order Lines" editable="bottom" create="0">
+                                        <field name="product_id"
+                                                options="{'no_open': True,}"
+                                                domain="[('property_is_consignment_product', '=', True)]"
+                                                widget="sol_product_many2one"
+                                        />
+                                        <field name="product_uom_qty"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

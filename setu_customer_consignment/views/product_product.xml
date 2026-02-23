@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="consignment_development_product_template_form_view" model="ir.ui.view">
+            <field name="name">consignment.development.product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']" position="inside">
+                    <span class="d-inline-block">
+                        <field name="property_is_consignment_product"/>
+                        <label for="property_is_consignment_product"/>
+                    </span>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="consignment_development_product_template_action" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('property_is_consignment_product','=', True)]</field>
+            <field name="context">{'property_is_consignment_product':True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No product found. Let's create one!
+                </p>
+                <p>
+                    Define the components and finished products you wish to use in
+                    bill of materials and manufacturing orders.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

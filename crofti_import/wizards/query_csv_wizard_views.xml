@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_query_csv_wizard_form" model="ir.ui.view">
+      <field name="name">query.csv.wizard.form</field>
+      <field name="model">query.csv.wizard</field>
+      <field name="arch" type="xml">
+        <form string="SQL Query Export">
+          <group>
+            <field name="query"/>
+          </group>
+          <footer>
+            <button name="action_run_query" string="Execute" type="object" class="btn-primary"/>
+            <button string="Cancel" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_query_csv_wizard" model="ir.actions.act_window">
+      <field name="name">SQL to CSV</field>
+      <field name="res_model">query.csv.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+</odoo>

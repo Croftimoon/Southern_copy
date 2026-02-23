@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Consignment Management | Setu Consulting Services Pvt. Ltd. | Odoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://www.setuconsulting.com/css/fonts.css" rel="stylesheet">
+    <link href="https://www.setuconsulting.com/css/plugins.css" rel="stylesheet">
+    <!-- <link href="https://www.setuconsulting.com/css/style.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<!-- odoo description page css -->
+<style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        line-height: 1.1;
+        color: #21272b;
+    }
+
+    ul {
+        color: #222020;
+    }
+
+    * {
+        font-family: "Montserrat", sans-serif;
+    }
+</style>
+<body>
+<div class="container">
+    <!-- Header -->
+    <div class="row justify-content-md-between justify-content-center border-bottom align-items-center py-2 mx-0">
+        <div id="logo">
+            <img src="images/odoo_images/setu.png" width="150px" class="logo-default" data-toggle="tooltip" data-placement="right" title="Setu Consulting Services Pvt. Ltd." alt="Setu Consulting Services Pvt. Ltd.">
+        </div>
+        <!-- <div class="ml-sm-center">
+            <strong>User Guide:</strong>
+            <span class="btn-success mx-2 pr-sm-4 mb-2 mb-lg-0" style="padding: 7px 7px 7px 7px; font-size: 14px; border-radius: 5px;" title="Copy this link and paste it to new tab or window"><strong>
+                https://www.setuconsulting.com/slides/advance-reordering-user-guide-13</strong></span>
+        </div> -->
+        <div class="text-center">
+            <a href="mailto:apps@setuconsulting.com?subject=Consignment Management Version 17.0 - Demo Request" target="_blank" class="btn btn-primary mx-2 pr-sm-4 mb-2 mb-lg-0" style="text-transform: uppercase; font-size: 14px;"><i class="fa fa-envelope-square mr-sm-2" style="font-size: 20px;vertical-align: middle;"></i> <span class="d-none d-sm-inline">Request a demo</span></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="text-center mb-4 mt-3">
+                <!-- <img src="images/consignment-management-title.png" width="150px" class="logo-default" data-toggle="tooltip" data-placement="right" title="Setu Consulting Services Pvt. Ltd." alt="Setu Consulting Services Pvt. Ltd."> -->
+
+                <a class="btn" style="width: auto; font-size: 32px; font-weight: bold; background-color:orange; box-shadow: 0px 0px 6px 3px #d7e5f1; padding-top: 12px;padding-bottom: 12px;padding-left: 60px; padding-right: 60px; border-radius: 28px; color: white; border: none;">Consignment Management
+                </a>
+                <!-- <a href="https://www.youtube.com/playlist?list=PLH6xCEY0yCIBXSy1ZH3tGj6NPaZqCllca" target="_blank"><img src="images/video_userguide.png" title="Video user guide" alt="Video user guide" width="300px" class="ml-4"></a> -->
+            </div>
+            <!-- <img src="images/overview.png"> -->
+            <div class="row p-3 pt64 pb64 shadow" style="border-radius:10px; padding:5px; border-top:4px solid #5A63A6; width: 100%">
+                <div class="col-lg-8 text-center">
+                    <!-- <h2 class="mb-3">OVERVIEW</h2> -->
+                    <p style="font-size: 18px; letter-spacing: 0.2px; text-align: justify;" class="px-sm-4 p-2">
+                        Consignment management is the process of managing goods that are held in stock by a third-party seller (consignee), but still owned by the original consignor or supplier. The consignee (the third-party seller) agrees to sell the goods on behalf of the consignor, but the consignor retains ownership of the goods until they are sold. Setu's consignment management solution can help your business streamline the entire consignment process, from managing consignment orders to monitoring consignment inventory, handling consignment returns, and even analytical reports of the consignment process
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <img src="images/consignment-stores.jpg" alt="Odoo Consignment Management" class="w-100" style="border-radius: 10px; box-shadow: 0px 2px 9px 4px #d0cecb;">
+                </div>
+            </div>
+            <p class="text-justify text-muted" data-animate="fadeIn" data-animate-delay="400">
+                <font size="4"></font>
+            </p><br>
+            
+            <div class="row" style="border-radius: 10px; box-shadow: 0px 2px 9px 4px #d0cecb;">
+                <div class="row px-1 py-4">
+                    <h2 class="w-100 text-center my-3"><strong>Key Features</strong></h2>
+                    <div class="text-center w-100 mb-4">
+                        <img src="images/line.png" alt="Setu Consulting" width="30%" height="100%">
+                    </div>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                        <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Manage Multiple Consignees</strong></div>
+                    </li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">
+                        Allows you to manage and track inventory from multiple consignees in a single system, making it easier to monitor consignment levels and sales. It also helps in reducing the chances of errors and minimizing the time and effort required to manage consignment inventory.
+                    </li>
+                    </font>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Consignment inventory management</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Enables you to avoid stockouts and overstocking by providing consignment inventory levels. It helps track consignment product performance, monitor inventory, and make data-driven decisions.</li></font>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Consignment order management</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Automates consignment order processing, tracking, and fulfillment, streamlining the process to reduce errors, improve efficiency, and increase customer satisfaction.</li></font>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Consignment invoicing</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Automates invoice generation, payment tracking, and reminders to simplify the invoicing process, reduce errors, ensure timely payments, and improve cash flow management.</li></font>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Consignment Analytics and Reporting</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Gives insights into consignment inventory levels, product analysis, ledger reports, and consignee performance. It helps identify growth opportunities, make data-driven decisions, and improve business operations.</li></font>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Consignment customer management</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Helps in managing customer relationships by tracking their orders, preferences, and interactions.</li></font>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Consignment product management</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Manage inventory levels, pricing, and product performance. This allows you to make informed decisions about their consignment products.</li></font>
+                </div>
+                <div class="col-md-12" style="height: 180px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Minimize Inventory Risk by Returning Unsold Products</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Returning unsold products helps reduce the risk of excess inventory for the consignee. By retrieving unsold items, they can avoid the costs and potential losses associated with holding onto unsold stock.</li></font>
+                </div>
+                <div class="col-md-12" style="height: 200px">
+                    <font size="4">
+                    <li class="list-group-item list-group-item-primary">
+                    <div class="icon-class m-l-10" data-animate="bounceIn" data-animate-delay="600"><strong>Import Consignment Transaction</strong></div></li>
+                    <li class="list-group-item p-b-60 text-justify" style="height: 100px;">Uploading transactions in CSV or XLSX files can save time and effort by automating the data import process, streamlining workflow, and reducing manual entry errors.</li></font>
+                </div>
+            </div>
+
+            <!-- ADVANTAGE - START -->
+            <!-- <div class="row py-sm-5 px-1 py-4">
+                <h2 class="w-100 text-center my-3">Advantages</h2>
+                <div class="text-center w-100 mb-4">
+                    <img src="images/line.png" alt="Setu Consulting" width="30%" height="100%">
+                </div>
+                <img src="images/reordering-advantages.png">
+            </div> -->
+            <!-- ADVANTAGE - END -->
+        <div class="line"></div>
+    </div>
+
+    <!-- tab view START -->
+    <div class="row pt-4 px-3">
+        <h2 class="w-100 text-center my-3">Screenshots</h2>
+        <div class="text-center w-100 mb-2">
+            <img src="images/line.png" alt="Setu Consulting Services Pvt. Ltd." width="30%" height="100%">
+        </div>
+        <div class="row p-3 pt64 pb64 shadow" style="border-radius:10px; padding:5px; border-top:4px solid #5A63A6; width: 100%">
+            <div class="tab-content" id="pills-tabContent">
+                <!-- <div class="tab-pane fade show active">
+                    <div class="row">
+                        <div class="col-12 col-lg-12" >
+                            <ul class="list-unstyled pl-0  bg-white" style="font-size:15px;">
+                                <li class="d-flex align-items-baseline mb-2 p-3 font-weight-bold" style="border-radius: 10px;font-size: 16px;">
+                                    <span class="text-center " style="font-size: 40px;font-weight: 400;color: #8482b2;"> -->
+                                    <!-- Screenshots start -->
+                                        <!-- <div style="border:1px solid;"> -->
+                                            <div id="ilr_slide" class="carousel slide col-12 col-lg-12 mx-auto" data-ride="carousel">
+                                                <div class="carousel-inner pt-4">
+                                                    <div class="carousel-item px-4 active">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/1-consignment-warehouse.JPG" alt="Consignment Warehouse Configuration" title="Consignment Warehouse Configuration" style="max-width: 100%;">
+                                                        </div>  
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/2-consignment-location.JPG" alt="Consignment Location Configuration" title="Consignment Location Configuration" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/3-consignment-customer.JPG" alt="Consignment Customer" title="Consignment Customer" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/4-consignment-products.JPG" alt="consignment-products" title="consignment-products" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/5-consignment-orders.JPG" alt="consignment-orders" title="consignment-orders" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/6-consignment-transfers.JPG" alt="consignment-transfers" title="consignment-transfers" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/7-consignment-salesorder.JPG" alt="consignment-salesorder" title="consignment-salesorder" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/8-consignment-stock.JPG" alt="consignment-stock" title="consignment-stock" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/9-consignment-invoice.JPG" alt="consignment-invoice" title="consignment-invoice" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/10-consignment-order-to-invoice.JPG" alt="consignment-order-to-invoice" title="consignment-order-to-invoice" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/11-consignment-refund.JPG" alt="consignment-refund" title="consignment-refund" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/12-consignment-ledgerreport.JPG" alt="consignment-ledgerreport" title="consignment-ledgerreport" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/13-consignment-ledger-report-details.JPG" alt="consignment-ledger-report-details" title="consignment-ledger-report-details" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/14-consignee-reports.JPG" alt="consignee-reports" title="consignee-reports" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/15-consignee-report-details.JPG" alt="consignee-report-details" title="consignee-report-details" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/16-consignment-product-reports.JPG" alt="consignment-product-reports" title="consignment-product-reports" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="carousel-item px-4">
+                                                        <div class="row pb-sm-4 no-lg-gutters">
+                                                            <img src="images/screenshots/17-consignment-product-report-details.JPG" alt="consignment-product-report-details" title="consignment-product-report-details" style="max-width: 100%;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a class="carousel-control-prev" href="#ilr_slide" data-slide="prev" style="left: -5%; width: 60px;">
+                                                    <i class="fa fa-chevron-circle-left" style="font-size: 2vw;color: #875a7b;"></i>
+                                                </a>
+                                                <a class="carousel-control-next" href="#ilr_slide" data-slide="next" style="right: -5%; width: 60px;">
+                                                    <i class="fa fa-chevron-circle-right" style="font-size: 2vw;color: #875a7b;"></i>
+                                                </a>
+                                            </div>
+                                        <!-- </div> -->
+                                    <!-- </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- tab view END -->
+
+    <div class="container" style="width: 100%;">
+        <div class="row">
+            <div class="col-sm-6 col-md-12 px-2">
+                <h2 class="w-100 text-center my-3">Suggested Apps</h2>
+                <div class="text-center w-100 mb-4">
+                    <img src="images/line.png" alt="Setu Consulting" width="30%" height="100%">
+                </div>
+            </div>
+            <div class="card border-0" style="border-radius: .25rem;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: #002966; width: 100%;">
+                <div id="demo11" class="carousel slide col-12 col-lg-12 mx-auto" data-ride="carousel">
+                    <div class="row">
+                        <div id="apps" class="carousel slide col-12 col-lg-12 mx-auto" data-ride="carousel">
+                            <div class="carousel-inner pt-lg-5" >
+                                <div class="carousel-item px-4 active">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_cash_flow_forecasting/" target="_blank">
+                                        <img src="images/odoo_images/cash-forecasting-setu-consulting-odoo-erp-consultant.png" alt="Cash Forecasting" width="450px"  style="margin-left: 100px; margin-right:10px"></a>
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_advance_inventory_reports/" target="_blank">
+                                        <img src="images/odoo_images/advance-inventory-reports-setu-consulting-odoo-erp-consultant.png" alt="Advance Inventory Reports" width="450px" class="ml-4"></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item px-4">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_intercompany_transaction/" target="_blank">
+                                        <img src="images/odoo_images/inter-company-transfer-setu-consulting-odoo-erp-consultant.png" alt="Inyter company Transaction" alt="Inter Company Transfer" width="450px" style="margin-left: 100px; margin-right:10px"></a>
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_inventory_ledger_report/" target="_blank">
+                                        <img src="images/odoo_images/inventory-ledger-report-setu-consulting-odoo-erp-consultant.png" alt="Inventory Ledger Report" width="450px" class="ml-4"></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item px-4">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_abc_analysis_reports/" target="_blank">
+                                        <img src="images/odoo_images/abc-analysis-setu-consulting-odoo-erp-consultant.png" alt="ABC Analysis Reports" width="450px" style="margin-left: 100px; margin-right:10px"></a>
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_rfm_analysis/" target="_blank">
+                                        <img src="images/odoo_images/rfm-analysis-marketing-strategy-setu-consulting-odoo-erp-consultant.png" alt="RFM Analysis" width="450px" class="ml-4"></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item px-4">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_shopify_connector/" target="_blank">
+                                        <img src="images/odoo_images/odoo-shopify-connector-setu-consulting-odoo-erp-consultant.png" alt="Odoo Shopify Connector" width="450px" style="margin-left: 100px; margin-right:10px"></a>
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_inventory_count_management/" target="_blank">
+                                        <img src="images/odoo_images/inventory-count-setu-consulting-odoo-erp-consultant.png" alt="Multi User Inventory Count" width="450px" class="ml-4"></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item px-4">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_woocommerce_connector/" target="_blank">
+                                        <img src="images/odoo_images/woocommerce-odoo-connector-setu-consulting-erp-consultant.png" alt="Odoo WooCommerce Connector" width="450px" style="margin-left: 100px; margin-right:10px"></a>
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_rma/" target="_blank">
+                                        <img src="images/odoo_images/rma-website-rma-setu-consulting-odoo-erp-consultant.png" alt="Return Merchandise Authorization" width="450px" class="ml-4"></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item px-4">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_customer_rating/" target="_blank">
+                                        <img src="images/odoo_images/customer-rating-setu-consulting-odoo-erp-consultant.png" alt="Customer Rating" width="450px" style="margin-left: 100px; margin-right:10px" class="ml-4"></a>
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_wayfair_connector/" target="_blank">
+                                        <img src="images/odoo_images/odoo-wayfair-connector-setu-consulting-erp-consultant.png" alt="Odoo Wayfair Connector" width="450px" class="ml-4"></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item px-4">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_sales_product_performance_report/" target="_blank">
+                                        <img src="images/odoo_images/sales-and-product-performance-report-setu-consulting-odoo-erp-consultant.png" alt="Sales and Product Performance Report" width="450px" style="margin-left: 100px; margin-right:10px"></a>
+                                        <a href="https://apps.odoo.com/apps/modules/15.0/setu_sales_purchase_price_tracker/" target="_blank">
+                                        <img src="images/odoo_images/sale-purchase-price-tracker-setu-consulting-odoo-erp-consultant.png" alt="Sale - Purchase Price Tracker" width="450px" class="ml-4"></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item px-4">
+                                    <div class="row pb-sm-4 no-lg-gutters">
+                                        <a href="https://apps.odoo.com/apps/modules/14.0/setu_inventory_card_report/" target="_blank">
+                                        <img src="images/odoo_images/ledgerCard.png" alt="Inventory Card Report" width="450px" style="margin-left: 100px; margin-right:10px"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#apps" data-slide="prev" style="left: -5%; width: 60px;">
+                                <i class="fa fa-chevron-circle-left" style="font-size: 2vw;color: #875a7b;"></i>
+                            </a>
+                            <a class="carousel-control-next" href="#apps" data-slide="next" style="right: -5%; width: 60px;">
+                                <i class="fa fa-chevron-circle-right" style="font-size: 2vw;color: #875a7b;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 mt-3 px-2 text-center">
+                <div style="border-radius:10px; padding:5px; border-left:4px solid #5A63A6; box-shadow: 0px 2px 9px 4px #d0cecb;">
+                    <h5 class="font-weight-bold">FREE SUPPORT</h5>
+                    <p class="m-auto w-75" style="line-height: 1.5;font-weight: 100;">We will provide free support for any issues, queries, and bug fixing upto 90 days from the date of purchase of this application. 
+                    <a href="mailto:support@setuconsulting.com?subject=Consignment Management Version 17.0 - Support Request" target="_blank" class="btn btn-info mx-2 pr-sm-4 mb-2 mb-lg-0" style="text-transform: uppercase; font-size: 14px;"><i class="fa fa-envelope-square mr-sm-2" style="font-size: 20px;vertical-align: middle;"></i> <span class="d-none d-sm-inline">Request free support</span></a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 mt-3 px-2 text-center">
+                <div style="border-radius:10px; padding:5px; border-left:4px solid #5A63A6; height: 150px; box-shadow: 0px 2px 9px 4px #d0cecb;">
+                    <h3 class="font-weight-bold">NOTE</h3>
+                    <p class="m-auto w-75" style="line-height: 1.5;font-weight: 100;">
+                        Get notified about latest update. Please drop an email when you make purchase at
+                        <a href="mailto:info@setuconsulting.com?subject=Consignment Management Version 17.0 - New Purchase" class="btn btn-info mx-2 pr-sm-4 mb-2 mb-lg-0" style="text-transform: uppercase; font-size: 14px;"><i class="fa fa-envelope-square mr-sm-2" style="font-size: 20px;vertical-align: middle;"></i> <span class="d-none d-sm-inline">Setu Consulting</span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-6 col-md-12 mt-3 px-2 text-center">
+                <div style="border-radius:10px; padding:5px; border-left:4px solid #5A63A6; border-right:4px solid #5A63A6; box-shadow: 0px 2px 9px 4px #d0cecb;">
+                    <h5 class="font-weight-bold">
+                        <a href="mailto:sales@setuconsulting.com?subject=Cash Forecasting Version 15.0 - Solution Inquiry" target="_blank" class="mx-2 pr-sm-4 mb-2 mb-lg-0" style="text-transform: uppercase; text-decoration: none; font-size: 14px;"><span class="d-none d-sm-inline">
+                            <img src="images/email.gif" alt="arrow" style="width:30px;"> sales@setuconsulting.com</span>
+                        </a>
+                        <a href="skype:live:.cid.7abebb3d4adef53f?chat" target="_blank" class="" style="text-transform: uppercase; text-decoration: none; font-size: 14px;"><i class="fa mr-sm-2" style="font-size: 20px;vertical-align: middle;"></i> <span class="d-none d-sm-inline">
+                            <img src="images/skype.gif" alt="arrow" style="width:30px;"> Setu Consulting</span>
+                        </a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 mb-4">
+        <div class="row">
+            <div class="col-sm-6 col-md-12 mt-3 px-2 text-center">
+                <div class="col-sm-6 col-md-12 mt-6 px-2 text-center">
+                    <img src="images/odoo_images/odoo-services-1.png" class="responsive" style="margin:2px 2px 2px 2px; border-radius: 10px;  box-shadow: -1px 0px 10px 2px #888;" alt="Setu Consulting Services Private Limited | Odoo Certified Consultant | Offical Odoo Partner" title="Setu Consulting Services Private Limited | Odoo Certified Consultant | Offical Odoo Partner">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit the stock picking barcode view to add carrier fields -->
+        <record id="stock_picking_barcode_inherit_carrier_tracking" model="ir.ui.view">
+            <field name="name">stock.picking.barcode.inherit.carrier.tracking</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock_barcode.stock_picking_barcode"/>
+            <field name="arch" type="xml">
+                <!-- Add carrier field in the info form after partner -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="carrier_id"
+                           invisible="picking_type_code != 'outgoing'"
+                           placeholder="Select carrier"/>
+                    <field name="carrier_tracking_ref"
+                           invisible="picking_type_code != 'outgoing'"
+                           placeholder="Enter tracking reference"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

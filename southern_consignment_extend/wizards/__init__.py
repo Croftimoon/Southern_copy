@@ -1,0 +1,1 @@
+from . import import_partner_consignment_wizard

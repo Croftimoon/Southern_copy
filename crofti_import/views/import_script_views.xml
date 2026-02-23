@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_uploaded_sql_script_tree" model="ir.ui.view">
+        <field name="name">import.script.tree</field>
+        <field name="model">import.script</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="action_bulk_import"
+                            string="Batch Upload"
+                            type="object"
+                            class="btn-primary"
+                            display="always"/>
+                    <button name="action_csv_export"
+                            string="CSV Export"
+                            type="object"
+                            class="btn-primary"
+                            display="always"/>
+                    <button name="action_stupid"
+                            string="Do Ostralos stuff"
+                            type="object"
+                            class="btn-primary"
+                            display="always"/>
+                </header>
+                <field name="name"/>
+                <field name="file_type"/>
+                <field name="size"/>
+                <field name="state"/>
+                <field name="result_log"/>
+                <field name="executed_at"/>
+                <field name="duration"/>
+                <button name="action_execute" string="Run" type="object" class="btn-primary"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_uploaded_sql_script_form" model="ir.ui.view">
+        <field name="name">import.script.form</field>
+        <field name="model">import.script</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_execute" string="Run Import" type="object" class="btn-primary" invisible="not id"/>
+                </header>
+                <group>
+                    <field name="name" invisible="True"/>
+                    <field name="file" filename="name"/>
+                    <field name="file_type"/>
+                    <field name="size"/>
+                    <field name="state"/>
+                    <field name="result_log" invisible="not id"/>
+                    <field name="executed_at"/>
+                    <field name="duration"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_script" model="ir.actions.act_window">
+        <field name="name">Import Scripts</field>
+        <field name="res_model">import.script</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_script_import"
+              parent="base.next_id_9"
+              action="action_import_script"
+              groups="base.group_system"/>
+</odoo>

@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_hr_employee_form_inherit_custom" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.custom.page</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Assets">
+                    <field name="asset_ids" mode="tree,form" editable="bottom" readonly="True">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="acquisition_date"/>
+                            <field name="original_value"/>
+                            <field name="book_value"/>
+                            <field name="value_residual"/>
+                            <field name="state"/>
+                            <field name="currency_id" groups="base.group_multi_currency" optional="hide"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="hr_employee_tree_inherit_asset_count" model="ir.ui.view">
+        <field name="name">hr.employee.tree.inherit.asset.count</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="asset_count" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

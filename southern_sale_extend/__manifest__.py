@@ -1,0 +1,31 @@
+{
+    'name': 'Southern Implants Sale Extend',
+    'version': '17.0.10.0.9',
+    'category': 'Invoice',
+    'summary': """
+        This module will allow creation of invoices for clients
+    """,
+    'description': '',
+    'author': 'Crofti Innovations',
+    'website': "https://crofti.com",
+    'depends': ['base', 'sale'],
+    'data': [
+        'views/sale_order_views.xml',
+        'views/account_move_views.xml',
+        'views/report_invoice.xml',
+        'views/crm_team_views.xml',
+        'views/product_pricelist_views.xml',
+        'views/delivery_lead_time_views.xml',
+        'views/account_statement_report.xml',
+        'views/portal_templates.xml',
+        'views/res_partner.xml',
+        'views/stock_delivery_report_custom.xml',
+        'security/groups.xml',
+        'security/ir.model.access.csv',
+    ],
+    'images': [],
+    'license': 'LGPL-3',
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}

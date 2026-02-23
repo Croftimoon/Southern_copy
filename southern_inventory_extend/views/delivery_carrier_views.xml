@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit delivery carrier form to add regex configuration -->
+        <record id="delivery_carrier_form_inherit_regex" model="ir.ui.view">
+            <field name="name">delivery.carrier.form.inherit.regex</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+            <field name="arch" type="xml">
+                <!-- Add regex configuration in the pricing tab -->
+                <xpath expr="//page[@name='pricing']" position="after">
+                    <page string="Tracking Configuration" name="tracking_config">
+                        <group>
+                            <field name="tracking_ref_regex"
+                                   placeholder="e.g., ^([^-]+)-.*"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Main partner form view -->
+        <record id="consignment_development_view_partner_form" model="ir.ui.view">
+            <field name="name">consignment.development.view.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="property_is_consignment_customer"/>
+                    <field name="property_consignment_location_id"
+                           readonly="0"
+                           invisible="not property_is_consignment_customer"
+                           context="{'default_is_consignment_location': True, 'default_usage': 'internal', 'default_partner_id': id}"
+                           domain="[('is_consignment_location', '=', True), ('usage', '=', 'internal'), ('company_id', '=', current_company_id)]"/>
+                    <button name="action_create_consignment_location"
+                            string="Create Consignment Location"
+                            type="object"
+                            class="btn-secondary"
+                            invisible="not property_is_consignment_customer or property_consignment_location_id"
+                            help="Create a new consignment location for this customer"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Stock form view inheritance -->
+        <record id="consignment_development_view_partner_stock_form" model="ir.ui.view">
+            <field name="name">consignment.development.view.partner.stock.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="stock.view_partner_stock_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='inventory']" position="inside">
+                    <field name="property_is_consignment_customer"/>
+                    <field name="property_consignment_location_id"
+                           readonly="0"
+                           invisible="not property_is_consignment_customer"
+                           context="{'default_is_consignment_location': True, 'default_usage': 'internal', 'default_partner_id': id}"
+                           domain="[('is_consignment_location', '=', True), ('usage', '=', 'internal'), ('company_id', '=', current_company_id)]"/>
+                    <button name="action_create_consignment_location"
+                            string="Create Location"
+                            type="object"
+                            class="btn-link"
+                            invisible="not property_is_consignment_customer or property_consignment_location_id"
+                            help="Create consignment location"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Enhanced consignment customer action -->
+        <record id="consignment_development_res_partner_action" model="ir.actions.act_window">
+            <field name="name">Consignment Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('property_is_consignment_customer','=', True)]</field>
+            <field name="context">{
+                'default_property_is_consignment_customer': True,
+                'default_is_company': True,
+                'default_customer_rank': 1,
+                'search_default_customer': 1
+            }</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first consignment customer
+                </p>
+                <p>
+                    Consignment customers are partners who receive your products
+                    to sell on your behalf. You maintain ownership until the
+                    products are sold.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

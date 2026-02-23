@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="portal_my_invoices_inherit" inherit_id="account.portal_my_invoices">
+        <xpath expr="//th[@name='amount_due']" position="after">
+            <th name="amount_total" class="text-end">Amount</th>
+        </xpath>
+
+        <xpath expr="//td[@class='text-end']/span" position="after">
+            <td class="text-end">
+                <span t-out="invoice.amount_total"
+                      t-options='{"widget": "monetary", "display_currency": invoice.currency_id}'/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

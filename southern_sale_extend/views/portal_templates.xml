@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add patient name to portal invoice list -->
+    <template id="portal_my_invoices_patient_name" inherit_id="account.portal_my_invoices">
+
+        <!-- Add patient name column header -->
+        <xpath expr="//th[@name='invoice_date']" position="after">
+            <th name="patient_name">Patient Name</th>
+        </xpath>
+
+        <!-- Add patient name data in invoice list -->
+        <xpath expr="//td[2]" position="after">
+            <td><span t-field="invoice.patient_name"/></td>
+        </xpath>
+
+    </template>
+
+    <!-- Add patient name to portal sales order list -->
+    <template id="portal_my_orders_patient_name" inherit_id="sale.portal_my_orders">
+
+        <!-- Add patient name column header after Order Date -->
+        <xpath expr="//th[@class='text-end'][contains(text(), 'Order Date')]" position="after">
+            <th name="patient_name">Patient Name</th>
+        </xpath>
+
+        <!-- Add patient name data in order list after Order Date column -->
+        <xpath expr="//td[@class='text-end'][1]" position="after">
+            <td><span t-field="order.patient_name"/></td>
+        </xpath>
+
+    </template>
+
+    <!-- Add patient name to portal sales order detail view -->
+    <template id="portal_sale_order_patient_name" inherit_id="sale.sale_order_portal_content">
+
+        <!-- Add patient name to the Sale Information table -->
+        <xpath expr="//tbody[@id='sale_info_table']/tr[last()]" position="after">
+            <tr t-if="sale_order.patient_name">
+                <th class="ps-0 pb-0">Patient Name:</th>
+                <td class="w-100 pb-0 text-wrap"><span t-field="sale_order.patient_name"/></td>
+            </tr>
+        </xpath>
+
+    </template>
+
+</odoo>

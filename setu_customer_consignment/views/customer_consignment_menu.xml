@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_main_customer_consignment_process"
+                  name="Customer Consignment"
+                  groups="setu_customer_consignment.group_setu_consignment_user"
+                  web_icon="setu_customer_consignment,static/description/icon.png"/>
+
+        <menuitem id="menu_operation_process"
+                  name="Operations"
+                  parent="setu_customer_consignment.menu_main_customer_consignment_process"
+                  sequence="1"/>
+
+        <menuitem id="menu_consignment_transfers"
+                  name="Consignment Transfers"
+                  parent="setu_customer_consignment.menu_operation_process"
+                  action="setu_customer_consignment.consignment_development_stock_picking"
+                  sequence="1"/>
+
+        <menuitem id="menu_consignment_orders"
+                  name="Consignment Orders"
+                  parent="setu_customer_consignment.menu_operation_process"
+                  action="setu_customer_consignment.consignment_development_consignment_sale_order_action"
+                  sequence="2"/>
+
+        <menuitem id="menu_consignment_product"
+                  name="Consignment Product"
+                  parent="setu_customer_consignment.menu_operation_process"
+                  action="setu_customer_consignment.consignment_development_product_template_action"
+                  sequence="3"/>
+
+        <menuitem id="menu_consignment_customers"
+                  name="Consignment Customer"
+                  parent="setu_customer_consignment.menu_operation_process"
+                  action="setu_customer_consignment.consignment_development_res_partner_action"
+                  sequence="4"/>
+
+        <menuitem id="menu_traceability"
+                  name="Traceability"
+                  parent="setu_customer_consignment.menu_main_customer_consignment_process"
+                  sequence="2"/>
+
+        <menuitem id="menu_consignment_stock"
+                  name="Consignment Stock"
+                  parent="setu_customer_consignment.menu_traceability"
+                  action="setu_customer_consignment.consignment_development_stock_move_line_action"
+                  sequence="1"/>
+
+        <menuitem id="menu_consignment_invoice"
+                  name="Consignment Invoice"
+                  parent="setu_customer_consignment.menu_traceability"
+                  action="setu_customer_consignment.consignment_development_invoice_action"
+                  sequence="2"/>
+
+        <menuitem id="menu_consignment_order_to_invoice"
+                  name="Order To Invoice"
+                  parent="setu_customer_consignment.menu_traceability"
+                  action="setu_customer_consignment.consignment_development_order_to_invoice_action"
+                  sequence="3"/>
+
+        <menuitem id="menu_consignment_returned"
+                  name="Consignment Returned"
+                  parent="setu_customer_consignment.menu_traceability"
+                  action="setu_customer_consignment.consignment_development_stock_picking_returned_action"
+                  sequence="4"/>
+
+        <menuitem id="menu_reports_consignment"
+                  name="Reports"
+                  parent="setu_customer_consignment.menu_main_customer_consignment_process"
+                  sequence="3"/>
+
+        <menuitem id="menu_consignee_reports"
+                  name="Consignee Reports"
+                  action="setu_customer_consignment.action_consignee_report_all"
+                  parent="setu_customer_consignment.menu_reports_consignment"
+                  sequence="2"/>
+
+        <menuitem id="menu_product_reports"
+                  name="Product Reports"
+                  action="setu_customer_consignment.action_product_report_all"
+                  parent="setu_customer_consignment.menu_reports_consignment"
+                  sequence="3"/>
+
+        <menuitem id="setu_consignment_ledger_reports_menu"
+                  name="Consignment Ledger Report"
+                  action="setu_consignment_ledger_report_action"
+                  parent="setu_customer_consignment.menu_reports_consignment"
+                  sequence="1"/>
+
+        <menuitem id="menu_configurations"
+                  name="Configurations"
+                  parent="setu_customer_consignment.menu_main_customer_consignment_process"
+                  groups="setu_customer_consignment.group_setu_consignment_manager"
+                  sequence="4"/>
+
+        <menuitem id="menu_consignment_warehouse"
+                  name="Consignment Warehouse"
+                  parent="setu_customer_consignment.menu_configurations"
+                  action="setu_customer_consignment.consignment_warehouse_action"
+                  sequence="3"/>
+
+        <menuitem id="menu_consignment_location"
+                  name="Consignment Location"
+                  parent="setu_customer_consignment.menu_configurations"
+                  action="setu_customer_consignment.consignment_location_action"
+                  sequence="4"/>
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- New permission group for setting sales orders to delivered -->
+        <record id="group_set_sales_delivered" model="res.groups">
+            <field name="name">Set Sales Orders to Delivered</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="comment">Users with this permission can set sales orders to delivered status</field>
+        </record>
+
+        <!-- Make the Settings group imply this new permission -->
+        <record model="res.groups" id="base.group_system">
+            <field name="implied_ids" eval="[Command.link(ref('southern_sale_extend.group_set_sales_delivered'))]"/>
+        </record>
+
+         <!-- Group for discount editing access -->
+        <record id="group_sale_discount_edit" model="res.groups">
+            <field name="name">Sales: Edit Discount</field>
+            <field name="comment">Permission to edit discount fields in sales orders</field>
+        </record>
+
+        <!-- Group for pricelist editing access -->
+        <record id="group_sale_pricelist_edit" model="res.groups">
+            <field name="name">Sales: Edit Pricelist</field>
+            <field name="comment">Permission to edit pricelist selection in sales orders</field>
+        </record>
+    </data>
+</odoo>

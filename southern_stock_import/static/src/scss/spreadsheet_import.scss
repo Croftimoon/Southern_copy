@@ -1,0 +1,41 @@
+// Styling for the spreadsheet dropdown field widget
+.o_field_widget[name="product_column_index"] select,
+.o_field_widget[name="quantity_column_index"] select {
+    width: 100%;
+    min-height: 32px;
+}
+
+// Preview table styling
+.o_spreadsheet_import_preview {
+    margin-top: 15px;
+
+    .table {
+        font-size: 12px;
+        margin-bottom: 0;
+
+        th, td {
+            padding: 6px 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+            font-size: 11px;
+        }
+
+        td {
+            font-size: 11px;
+            color: #6c757d;
+        }
+    }
+
+    .text-muted {
+        font-size: 12px;
+        margin-top: 8px;
+        margin-bottom: 0;
+    }
+}

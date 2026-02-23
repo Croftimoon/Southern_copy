@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Sales Order Form View -->
+    <record id="view_order_form_warehouse_note" model="ir.ui.view">
+        <field name="name">sale.order.form.warehouse.note</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add warehouse note tab -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Warehouse Instructions" name="warehouse_instructions">
+                    <field name="warehouse_note"
+                           placeholder="Add detailed instructions or notes for the warehouse team..."
+                           readonly="state not in ['draft', 'sent']"
+                           options="{'style-inline': true}"
+                           style="min-height: 300px;"/>
+                </page>
+            </xpath>
+
+            <!-- Add send message button in header -->
+            <xpath expr="//header" position="inside">
+                <button string="Send Message to Warehouse"
+                        type="object"
+                        name="send_message_to_warehouse"
+                        class="btn-secondary"
+                        invisible="state in ['draft', 'sent', 'cancel']"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_import_script,access_import_script,model_import_script,base.group_system,1,1,1,1
+access_import_script_wizard,access_import_script_wizard,model_import_script_wizard,base.group_system,1,1,1,1
+access_import_script_wizard_line,access_import_script_wizard_line,model_import_script_wizard_line,base.group_system,1,1,1,1
+access_query_csv_wizard,access_query_csv_wizard,model_query_csv_wizard,base.group_system,1,1,1,1
